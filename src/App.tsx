@@ -1,10 +1,10 @@
-import { DataForm } from "./components/UI/molecules/DataForm";
+import { ParentForm } from "./components/UI/organisms/ParentForm";
 import { GlobalStyles } from "./styles/GlobalStyles";
 
 export const App = () => {
   return (
     <div>
-      <DataForm />
+      <ParentForm />
       <GlobalStyles />
     </div>
   );

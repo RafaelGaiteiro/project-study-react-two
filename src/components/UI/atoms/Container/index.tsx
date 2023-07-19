@@ -3,8 +3,9 @@ import { ContainerStylized } from "./styles";
 
 interface IContainerProps {
   children: ReactNode;
+  width?: string;
 }
 
-export const Container = ({ children }: IContainerProps) => {
-  return <ContainerStylized>{children}</ContainerStylized>;
+export const Container = ({ children, width }: IContainerProps) => {
+  return <ContainerStylized widthPersonalized={width}>{children}</ContainerStylized>;
 };
