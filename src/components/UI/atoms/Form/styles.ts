@@ -7,7 +7,4 @@ export const FormStylized = styled.form`
   width: 500px;
   padding: 18px;
   gap: 4px;
-
-  border: solid 2px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
 `;
