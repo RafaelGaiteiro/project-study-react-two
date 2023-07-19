@@ -17,16 +17,20 @@ export const ParentForm = () => {
     surname: "",
     phone: "",
   });
+  const [showDisplay, setShowDisplay] = useState<boolean>(false);
 
   // Lida com o formulário
   function handleFormSubmit(newData: IForm) {
     setFormData(newData);
+    // Mostra o display
+    setShowDisplay(true);
   }
 
   return (
     <Container>
       <DataForm onSubmit={handleFormSubmit} />
-      <DataDisplay {...formData} />
+      {/* Renderização condicional */}
+      {showDisplay && <DataDisplay {...formData} />}
     </Container>
   );
 };

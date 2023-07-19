@@ -19,6 +19,10 @@ export const DataForm = ({ onSubmit }: DataFormProps) => {
   function handleForm(e: React.FormEvent) {
     e.preventDefault();
     onSubmit({ name, surname, phone });
+    // Limpa os campos
+    setName("");
+    setSurname("");
+    setPhone("");
   }
 
   return (
@@ -30,18 +34,21 @@ export const DataForm = ({ onSubmit }: DataFormProps) => {
           id="name"
           placeholder="Digite o seu nome"
           onChange={(e) => setName(e.target.value)}
+          value={name}
         />
         <Label htmlFor="surname">Sobrenome</Label>
         <Input
           id="surname"
           placeholder="Digite o seu sobrenome"
           onChange={(e) => setSurname(e.target.value)}
+          value={surname}
         />
         <Label htmlFor="phone">Telefone</Label>
         <Input
           id="phone"
           placeholder="Digite o seu telefone"
           onChange={(e) => setPhone(e.target.value)}
+          value={phone}
         />
         <Button type="submit">Enviar</Button>
       </Form>
