@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { Content, DefaultTemplateStylized } from "./styles";
+import { Background, Content, DefaultTemplateStylized } from "./styles";
 import { Header } from "../../UI/atoms/Header";
 import { Aside } from "../../UI/atoms/Aside";
 
@@ -12,7 +12,9 @@ export const DefaultTemplate = ({ children }: IDefaultTemplate) => {
     <DefaultTemplateStylized>
       <Header />
       <Aside />
-      <Content>{children}</Content>
+      <Background>
+        <Content>{children}</Content>
+      </Background>
     </DefaultTemplateStylized>
   );
 };
