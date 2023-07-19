@@ -6,23 +6,49 @@ import { Input } from "../../atoms/Input";
 import { Label } from "../../atoms/Label";
 import { Text } from "../../atoms/Title";
 import { IForm } from "../../organisms/ParentForm"; // Interface sendo importada
+import { Alert } from "../../atoms/Alert";
+import { v4 as uuidv4 } from "uuid";
 
 type DataFormProps = {
   onSubmit: (data: IForm) => void;
 };
 
 export const DataForm = ({ onSubmit }: DataFormProps) => {
-  const [name, setName] = useState("");
-  const [surname, setSurname] = useState("");
-  const [phone, setPhone] = useState("");
+  const [name, setName] = useState<string>("");
+  const [surname, setSurname] = useState<string>("");
+  const [phone, setPhone] = useState<string>("");
+  const [alerts, setAlerts] = useState<string[]>([]);
 
   function handleForm(e: React.FormEvent) {
     e.preventDefault();
-    onSubmit({ name, surname, phone });
-    // Limpa os campos
-    setName("");
-    setSurname("");
-    setPhone("");
+    // Valida se os campos não são nulos
+    if (name === "") {
+      // Exibe mensagem
+      setAlerts((prevAlerts) => [
+        // Precisamos do ...prevAlerts para que o último alerta adicionado não elimine os demais
+        ...prevAlerts,
+        "Por favor, digite o seu nome.",
+      ]);
+    }
+    if (surname === "") {
+      setAlerts((prevAlerts) => [
+        ...prevAlerts,
+        "Por favor, digite o seu sobrenome.",
+      ]);
+    }
+    if (phone === "") {
+      setAlerts((prevAlerts) => [
+        ...prevAlerts,
+        "Por favor, digite o seu telefone.",
+      ]);
+    } else {
+      // Manda os dados para o componente pai que passa para o display
+      onSubmit({ name, surname, phone });
+      // Limpa os campos
+      setName("");
+      setSurname("");
+      setPhone("");
+    }
   }
 
   return (
@@ -50,6 +76,11 @@ export const DataForm = ({ onSubmit }: DataFormProps) => {
           onChange={(e) => setPhone(e.target.value)}
           value={phone}
         />
+        <Alert>
+          {alerts.map((alert) => (
+            <p key={uuidv4()}>{alert}</p>
+          ))}
+        </Alert>
         <Button type="submit">Enviar</Button>
       </Form>
     </Container>

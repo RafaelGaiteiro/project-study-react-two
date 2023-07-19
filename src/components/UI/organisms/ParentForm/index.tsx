@@ -27,7 +27,7 @@ export const ParentForm = () => {
   }
 
   return (
-    <Container>
+    <Container gap="4px">
       <DataForm onSubmit={handleFormSubmit} />
       {/* Renderização condicional */}
       {showDisplay && <DataDisplay {...formData} />}

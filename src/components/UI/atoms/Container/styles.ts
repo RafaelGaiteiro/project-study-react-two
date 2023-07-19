@@ -1,13 +1,11 @@
 import { styled } from "styled-components";
+import { IContainerProps } from ".";
 
-interface IContainerStylized {
-  widthPersonalized?: string;
-}
-
-export const ContainerStylized = styled.div<IContainerStylized>`
+export const ContainerStylized = styled.div<IContainerProps>`
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  width: ${(props) => props.widthPersonalized};
+  width: ${(props) => props.width};
+  gap: ${({ gap }) => gap};
 `;

@@ -1,11 +1,12 @@
 import { ReactNode } from "react";
 import { ContainerStylized } from "./styles";
 
-interface IContainerProps {
+export interface IContainerProps {
   children: ReactNode;
   width?: string;
+  gap?: string;
 }
 
-export const Container = ({ children, width }: IContainerProps) => {
-  return <ContainerStylized widthPersonalized={width}>{children}</ContainerStylized>;
+export const Container = ({ children, width, ...props }: IContainerProps) => {
+  return <ContainerStylized {...props}>{children}</ContainerStylized>;
 };
