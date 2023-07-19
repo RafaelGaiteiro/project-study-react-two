@@ -11,7 +11,7 @@ export const GlobalStyles = createGlobalStyle`
 
     html, body, #root {
         height: 100%;
-        background-color: rgb(247, 249, 251);
+        background-color: #e2e2e2;
     }
 
     *, button, input {

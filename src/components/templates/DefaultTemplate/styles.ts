@@ -12,7 +12,8 @@ export const DefaultTemplateStylized = styled.div`
 export const Content = styled.div`
   grid-area: CT;
   height: calc(100vh - 100px);
-
   display: flex;
   justify-content: center;
+  background-color: rgb(247, 249, 251);
+  border-radius: 32px 0 0 0;
 `;
