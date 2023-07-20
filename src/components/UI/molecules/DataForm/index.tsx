@@ -55,8 +55,8 @@ export const DataForm = ({ onSubmit }: DataFormProps) => {
   return (
     <Container>
       <Box>
+        <Text>Formulário</Text>
         <Form onSubmit={handleForm}>
-          <Text>Formulário</Text>
           <Label htmlFor="name">Nome</Label>
           <Input
             id="name"

@@ -19,4 +19,20 @@ export const LinkGroup = styled.div`
   gap: 16px;
 `;
 
-export const Link = styled.p``;
+export const Link = styled.p`
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 2px;
+  background-color: transparent;
+  transition: 0.2s;
+  user-select: none;
+
+  &&:hover {
+    background-color: rgba(113, 121, 118, 0.3);
+  }
+
+  &&:active {
+    color: white;
+    background-color: rgba(113, 121, 118, 0.9);
+  }
+`;
