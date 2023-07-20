@@ -11,10 +11,11 @@ export const DefaultTemplateStylized = styled.div`
 
 export const Content = styled.div`
   grid-area: CT;
-  height: calc(100vh - 100px);
+  height: calc(100% - 100px);
   width: calc(100% - 200px);
   display: flex;
   justify-content: center;
+  flex-direction: column;
 `;
 
 export const Background = styled.div`

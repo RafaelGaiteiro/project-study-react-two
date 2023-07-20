@@ -9,6 +9,7 @@ export const ButtonStylized = styled.button`
   color: #e2e2e2;
   background-color: #2b5fb3;
   transition: all 0.4s;
+  user-select: none;
 
   &&:hover {
     background-color: #1a61b5;

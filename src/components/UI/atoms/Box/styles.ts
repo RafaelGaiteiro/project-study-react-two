@@ -1,8 +1,9 @@
 import { styled } from "styled-components";
+import { IBoxProps } from ".";
 
-export const BoxStylized = styled.div`
+export const BoxStylized = styled.div<IBoxProps>`
   display: flex;
-  justify-content: center;
+  justify-content: ${(props) => (props.justify ? props.justify : "center")};
   align-items: center;
   flex-direction: column;
   width: 500px;
@@ -11,5 +12,4 @@ export const BoxStylized = styled.div`
 
   border: solid 2px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  min-height: 500px;
 `;

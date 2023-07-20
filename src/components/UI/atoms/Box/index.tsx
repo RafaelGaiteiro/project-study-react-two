@@ -1,10 +1,16 @@
 import { ReactNode } from "react";
 import { BoxStylized } from "./styles";
 
-interface IBoxProps {
+export interface IBoxProps {
   children: ReactNode;
+  justify?:
+    | "start"
+    | "center"
+    | "space-between"
+    | "space-around"
+    | "space-evenly";
 }
 
-export const Box = ({ children }: IBoxProps) => {
-  return <BoxStylized>{children}</BoxStylized>;
+export const Box = ({ children, ...props }: IBoxProps) => {
+  return <BoxStylized {...props}>{children}</BoxStylized>;
 };

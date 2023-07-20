@@ -34,8 +34,8 @@ export const Quiz = () => {
   }
 
   return (
-    <Container>
-      <Box>
+    <Container justify="start">
+      <Box justify="start">
         <Text>Quiz</Text>
         <Form onSubmit={handleSubmit(handleForm)}>
           <Label htmlFor="name">Nome</Label>
