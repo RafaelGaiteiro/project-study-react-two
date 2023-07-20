@@ -7,6 +7,7 @@ export const DefaultTemplateStylized = styled.div`
     "AS CT";
   grid-template-columns: 200px auto;
   grid-template-rows: 100px auto;
+  height: 100%;
 `;
 
 export const Content = styled.div`

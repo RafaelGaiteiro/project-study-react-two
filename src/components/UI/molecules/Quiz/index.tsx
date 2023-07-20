@@ -1,14 +1,18 @@
+import { useState } from "react";
+// Imports React Hook Form e Yup
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
 import { object, string } from "yup";
+
 import { Box } from "../../atoms/Box";
 import { Container } from "../../atoms/Container";
 import { Form } from "../../atoms/Form";
 import { Label } from "../../atoms/Label";
 import { Text } from "../../atoms/Text";
 import { Input } from "../../atoms/Input";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
 import { Button } from "../../atoms/Button";
 import { MessageError } from "../../atoms/MessageError";
+import { MessageSuccess } from "../../atoms/MessageSuccess";
 
 const schema = object({
   name: string().required("Informe o seu nome."),
@@ -29,8 +33,13 @@ export const Quiz = () => {
     register,
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
-  function handleForm() {
+  const [showMessageSuccess, setShowMessageSucces] = useState<boolean>(false);
+
+  function handleForm(data: any) {
     // Não precisa do e.preventDefault()
+    console.log("Dados enviados!");
+    console.log(data);
+    setShowMessageSucces(true);
   }
 
   return (
@@ -109,6 +118,9 @@ export const Quiz = () => {
             <MessageError>{errors?.hobbies?.message}</MessageError>
           )}
           <Button type="submit">Enviar</Button>
+          {showMessageSuccess && (
+            <MessageSuccess>Dados enviados!</MessageSuccess>
+          )}
         </Form>
       </Box>
     </Container>
