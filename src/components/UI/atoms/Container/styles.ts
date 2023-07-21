@@ -4,7 +4,7 @@ import { IContainerProps } from ".";
 export const ContainerStylized = styled.div<IContainerProps>`
   display: flex;
   justify-content: ${(props) => (props.justify ? props.justify : "center")};
-  align-items: center;
+  align-items: ${(props) => (props.align ? props.align : "center")};
   flex-direction: column;
   width: ${(props) => props.width};
   gap: ${({ gap }) => gap};

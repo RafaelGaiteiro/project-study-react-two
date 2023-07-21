@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
-export const GlobalStyles = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
     * {
         font-family: 'Jetbrains Mono', sans-serif;
         margin: 0;

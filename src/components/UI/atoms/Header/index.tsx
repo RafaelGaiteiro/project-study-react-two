@@ -14,6 +14,7 @@ export const Header = ({}: IHeaderProps) => {
         <Link onClick={() => navigate("/")}>Home</Link>
         <Link onClick={() => navigate("/form")}>Form</Link>
         <Link onClick={() => navigate("/quiz")}>Quiz</Link>
+        <Link onClick={() => navigate("/chat")}>Chat</Link>
       </LinkGroup>
     </HeaderStylized>
   );

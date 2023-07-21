@@ -11,6 +11,7 @@ export interface IContainerProps {
     | "space-between"
     | "space-around"
     | "space-evenly";
+  align?: "stretch" | "center" | "start" | "end";
 }
 
 export const Container = ({ children, ...props }: IContainerProps) => {

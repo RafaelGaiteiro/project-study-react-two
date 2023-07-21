@@ -21,34 +21,31 @@ export const DataForm = ({ onSubmit }: DataFormProps) => {
   const [alerts, setAlerts] = useState<string[]>([]);
 
   function handleForm(e: React.FormEvent) {
+    // Não realiza o comportamento padrão da página
     e.preventDefault();
-    // Valida se os campos não são nulos
+
+    // Criamos uma let pois seu ciclo de vida é apenas aqui
+    let newAlerts = [];
+
     if (name === "") {
-      // Exibe mensagem
-      setAlerts((prevAlerts) => [
-        // Precisamos do ...prevAlerts para que o último alerta adicionado não elimine os demais
-        ...prevAlerts,
-        "Por favor, digite o seu nome.",
-      ]);
+      newAlerts.push("Por favor, digite o seu nome.");
     }
     if (surname === "") {
-      setAlerts((prevAlerts) => [
-        ...prevAlerts,
-        "Por favor, digite o seu sobrenome.",
-      ]);
+      newAlerts.push("Por favor, digite o seu sobrenome.");
     }
     if (phone === "") {
-      setAlerts((prevAlerts) => [
-        ...prevAlerts,
-        "Por favor, digite o seu telefone.",
-      ]);
+      newAlerts.push("Por favor, digite o seu telefone.");
+    }
+
+    // Verificamos se a quantidade de mensagens é maior que 0
+    if (newAlerts.length > 0) {
+      setAlerts(newAlerts);
     } else {
-      // Manda os dados para o componente pai que passa para o display
       onSubmit({ name, surname, phone });
-      // Limpa os campos
       setName("");
       setSurname("");
       setPhone("");
+      setAlerts([]); // Limpa os alertas após a submissão bem sucedida.
     }
   }
 
